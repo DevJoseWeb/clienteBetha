@@ -1,0 +1,88 @@
+<div class="card blue">
+  <div class="card-tabs blue">
+    <ul class="tabs tabs-fixed-width">
+      <li class="tab"><a class="active" href="http://localhost:4200/pessoas/visualizar/pessoas.idpessoa">Pessoais</a></li>
+      <li class="tab"><a href="test5">Financeiro</a></li>
+      <li class="tab"><a href="test6">Histórico</a></li>
+    </ul>
+  </div>
+  <div class="card-content grey lighten-4">
+    <div id="test4">
+      <div class="col s12 m7">
+        <h5 class="header">Dados Pessoais do Cliente</h5>
+        <div class="card horizontal">
+          <div class="card-stacked">
+            <div class="card-content">
+              <div class="row">
+                <form materialize class="col s12" [formGroup]="form" (ngSubmit)="update()">
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <i class="material-icons prefix">account_circle</i>
+                      <input id="nome" type="text" data-length="50" [(ngModel)]="pessoas.nome" formControlName="nome">
+                      <label for="nome">
+            Nome</label>
+                    </div>
+                    <p>
+
+                      <div class="input-field col s6">
+                        <i class="material-icons prefix">fingerprint</i>
+                        <input id="cpf" type="number" data-length="12" [(ngModel)]="pessoas.cpf" formControlName="cpf">
+                        <label for="cpf">
+            CPF</label>
+                      </div>
+                      <p>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <i class="material-icons prefix">mail_outline</i>
+                      <input id="email" type="email" [(ngModel)]="pessoas.email" formControlName="email" class="validate">
+                      <label for="email" data-error="Errado ! por favor entre com email válido ex: web2ajax@gmail.com" data-success="Correto Válido">
+            E-mail</label>
+                    </div>
+                    <p>
+
+                      <div class="input-field col s6">
+                        <i class="material-icons prefix">perm_phone_msg</i>
+                        <input id="telefone" type="number" data-length="11" [(ngModel)]="pessoas.telefone" formControlName="telefone">
+                        <label for="telefone">
+            Telefone</label>
+                      </div>
+                      <p>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <i class="material-icons prefix">build</i>
+                      <input id="status" type="text" [(ngModel)]="pessoas.status" formControlName="status">
+                      <label for="status">
+            Status</label>
+                    </div>
+                    <p>
+
+                      <div class="input-field col s6">
+                        <i class="material-icons prefix">perm_contact_calendar</i>
+                        <input id="datacadastro" type="date" [(ngModel)]="pessoas.datacadastro" formControlName="datacadastro">
+                        <label for="datacadastro">
+            </label>
+                      </div>
+                      <p>
+                  </div>
+                  <button class="btn waves-effect red " routerLink="/pessoas/lista">
+      Voltar<i class="material-icons right ">replay</i>
+    </button>
+                </form>
+              </div>
+            </div>
+            <div class="card-action">
+               Histórico de Compras 
+               <a [routerLink]="['/pessoas/pedidos/', pessoas.idpessoa]">
+                        <i class='material-icons' onmouseover="Materialize.toast('Click para visualizar os pedidos do cliente na data corrente',2000)">textsms</i>
+                    </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="test5">Sem Informações Finaceiras</div>
+    <div id="test6">Sem Informações de Histórico</div>
+  </div>
+</div>

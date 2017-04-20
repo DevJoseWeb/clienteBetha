@@ -1,0 +1,64 @@
+<h5>{{ title }}</h5>
+<div class="row">
+    <form materialize class="col s12" [formGroup]="form" (ngSubmit)="update()">
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="nome" type="text" data-length="50" [(ngModel)]="pessoas.nome" formControlName="nome">
+                <label for="nome">
+            Nome</label>
+            </div>
+            <p>
+      
+            <div class="input-field col s6">
+                <i class="material-icons prefix">fingerprint</i>
+                <input id="cpf" type="number" data-length="12" [(ngModel)]="pessoas.cpf" formControlName="cpf">
+                <label for="cpf">
+            CPF</label>
+            </div>
+            <p>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">mail_outline</i>
+                <input id="email" type="email" [(ngModel)]="pessoas.email" formControlName="email" class="validate">
+                <label for="email" data-error="Errado ! por favor entre com email válido ex: web2ajax@gmail.com" data-success="Correto Válido">
+            E-mail</label>
+            </div>
+            <p>
+       
+            <div class="input-field col s6">
+                <i class="material-icons prefix">perm_phone_msg</i>
+                <input id="telefone" type="number" data-length="11" [(ngModel)]="pessoas.telefone" formControlName="telefone">
+                <label for="telefone">
+            Telefone</label>
+            </div>
+            <p>
+        </div>
+         <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">build</i>
+                <input id="status" type="text" [(ngModel)]="pessoas.status" formControlName="status">
+                <label for="status">
+            Status</label>
+            </div>
+            <p>
+      
+            <div class="input-field col s6">
+                <i class="material-icons prefix">perm_contact_calendar</i>
+                <input id="datacadastro" type="date" [(ngModel)]="pessoas.datacadastro" formControlName="datacadastro">
+                <label for="datacadastro">
+            </label>
+            </div>
+            <p>
+        </div>
+        <button class="btn waves-effect blue pulse" type="submit" [disabled]="!form.valid">
+        <!--<button class="btn waves-effect blue">-->
+            <i class="material-icons">cloud_done</i>
+      Salvar<i class=" material-icons right ">done</i>
+    </button>
+        <button class="btn waves-effect red " routerLink="/produtos/lista">
+      Voltar<i class="material-icons right ">replay</i>
+    </button>
+    </form>
+  </div>

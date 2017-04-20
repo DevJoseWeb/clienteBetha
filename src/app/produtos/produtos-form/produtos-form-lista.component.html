@@ -1,0 +1,57 @@
+
+<ul class="collapsible" data-collapsible="accordion">
+  <li>
+    <div class="collapsible-header">
+    <span class="new badge blue" data-badge-caption=" ao Total" 
+    onmouseover="Materialize.toast('Click para abrir os totais',2000)"></span>
+    <i class="material-icons" onmouseover="Materialize.toast('Click para abrir os totais',2000)">attach_money</i>Listagem de Produtos mais Vendidos
+    </div>
+    <div class="collapsible-body">Clientes em Atraso $
+    <span class="new badge purple" data-badge-caption=" ao Total">10</span>    
+    </div>
+    <div class="collapsible-body">Clientes Inativos
+    <span class="new badge red" data-badge-caption=" ao Total">2</span>    
+    </div>
+    <div class="collapsible-body">Clientes Ativos
+    <span class="new badge green" data-badge-caption=" ao Total">6</span>    
+    </div>
+  </li>
+   
+</ul>
+    <table class="highlight centered bordered responsive-table">
+        <thead>
+            <tr>
+                <th data-field='idprodutos'>Código</th>
+                <th data-field='descricao'>Descricao</th>
+                <th data-field='valorunitario'>Valor UN</th>
+                <th data-field='quantidade'>Quantidade DIS</th>
+                <th data-field='estoque'>Estoque</th>
+                <th data-field='status'>Status</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let produtos of produtoss'>
+                <td>{{ produtos.idprodutos }}</td>
+                <td>{{ produtos.descricao }}</td>
+                <td>{{ produtos.valorunitario }}</td>
+                <td>{{ produtos.quantidade }}</td>
+                <td>{{ produtos.estoque }}</td>
+                <div *ngIf="produtos.status === 'P'" onmouseover="Materialize.toast('ATIVO',2000)" [routerLink]="['/produtos', produtos.idpessoa]"><span class="new badge green" data-badge-caption="">COMPRE</span></div>
+                <div *ngIf="produtos.status === 'N' || produtos.estoque === '0'" onmouseover="Materialize.toast('INATIVO',2000)" [routerLink]="['/produtos', produtos.idpessoa]"><span class="new badge red" data-badge-caption="">Sem Estoque</span></div>
+                <div *ngIf="produtos.status === 'R' || produtos.estoque === '1'" onmouseover="Materialize.toast('INATIVO',2000)" [routerLink]="['/produtos', produtos.idpessoa]"><span class="new badge orange" data-badge-caption="">RESERVADO</span></div>
+                <td> </td>
+                <td>
+                    <a [routerLink]="['/produtos/editar/', produtos.id]">
+                        <i class="material-icons" onmouseover="Materialize.toast('Click para COMPRAR',2000)">add_shopping_cart</i>
+                    </a>
+                </td>
+                <td>
+                    <a [routerLink]="['/produtos/editar/', produtos.id]">
+                        <i class='material-icons' onmouseover="Materialize.toast('Click para apagar o registro',2000)" disabled>delete</i>
+                    </a>
+                </td>
+              </tr>
+        </tbody>
+    </table>
+            

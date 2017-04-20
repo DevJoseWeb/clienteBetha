@@ -1,0 +1,41 @@
+<ul class="collapsible" data-collapsible="accordion">
+  <li>
+    <div class="collapsible-header">
+    <span class="new badge blue" data-badge-caption=" no Total" 
+    onmouseover="Materialize.toast('Click para abrir os detalhes',2000)">{{ users.length }}</span>
+    <i class="material-icons" onmouseover="Materialize.toast('Click para abrir os totais',2000)">perm_identity</i>Listagem de Usuários
+    </div>
+    <div class="collapsible-body">
+    </div><i class="material-icons"></i>
+  </li>
+</ul>
+
+<table>
+  <thead>
+  <tr>
+    <th data-field="name">Name</th>
+    <th data-field="name">Email</th>
+    <th data-field="name">Telefone</th>
+    <th data-field="name">Editar</th>
+    <th data-field="name">Apagar</th>
+  </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.name }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.phone }}</td>
+      <td>
+        <a [routerLink]="['/users', user.id]">
+          <i class="material-icons">mode_edit</i>
+        </a>
+      </td>
+      <td>
+        <a (click)="deleteUser(user)" href="">
+          <i class="material-icons">delete</i>
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
