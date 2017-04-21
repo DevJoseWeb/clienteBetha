@@ -1,61 +1,66 @@
-<ul class="collapsible" data-collapsible="accordion">
-  <li>
-    <div class="collapsible-header">
-      <span class="new badge blue" data-badge-caption=" ao Total" onmouseover="Materialize.toast('Click para abrir os totais',2000)">25</span>
-      <i class="material-icons" onmouseover="Materialize.toast('Click para abrir os totais',2000)">attach_money</i>Listagem
-      de Clientes
-    </div>
-    <div class="collapsible-body">Clientes em Atraso $
-      <span class="new badge purple" data-badge-caption=" ao Total">10</span>
-    </div>
-    <div class="collapsible-body">Clientes Inativos
-      <span class="new badge red" data-badge-caption=" ao Total">2</span>
-    </div>
-    <div class="collapsible-body">Clientes Ativos
-      <span class="new badge green" data-badge-caption=" ao Total">6</span>
-    </div>
-  </li>
-</ul>
-<table class="highlight centered bordered responsive-table" >
-  <thead>
-    <tr>
-      <th data-field='idpessoa'>Código</th>
-      <th data-field='nome'>Nome</th>
-      <th data-field='cpf'>CPF</th>
-      <th data-field='email'>E-mail</th>
-      <th data-field='telefone'>Telefone</th>
-      <th data-field='datacadastro'>Cadastro</th>
-      <th data-field='status'>Status</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor='let pessoas of pessoass'>
-      <td>{{ pessoas.idpessoa }}</td>
-      <td>{{ pessoas.nome }}</td>
-      <td>{{ pessoas.cpf }}</td>
-      <td>{{ pessoas.email }}</td>
-      <td>{{ pessoas.telefone }}</td>
-      <td>{{ pessoas.datacadastro }}</td>
-      <div *ngIf="pessoas.status === 'A'" onmouseover="Materialize.toast('ATIVO',2000)" [routerLink]="['/pessoas', pessoas.idpessoa]"><span class="new badge green" data-badge-caption="">Ativo</span></div>
-      <div *ngIf="pessoas.status === 'I'" onmouseover="Materialize.toast('INATIVO',2000)" [routerLink]="['/pessoas', pessoas.idpessoa]"><span class="new badge red" data-badge-caption="">Inativo</span></div>
-      <div *ngIf="pessoas.status === 'D'" onmouseover="Materialize.toast('DEVENDO',2000)" [routerLink]="['/pessoas', pessoas.idpessoa]"><span class="new badge purple" data-badge-caption="">Debito</span></div>
-      <td> </td>
-      <td>
-        <a [routerLink]="['/pessoas/editar', pessoas.idpessoa]">
-          <i class="material-icons" onmouseover="Materialize.toast('Click para editar o registro',2000)">mode_edit</i>
-        </a>
-      </td>
-      <td>
-        <a [routerLink]="['/pessoas/editar', pessoas.idpessoa]">
-          <i class="material-icons">mode_edit</i>
-        </a>
-      </td>
-      <td>
-        <a [routerLink]="['/pessoas/visualizar/', pessoas.idpessoa]">
-          <i class='material-icons' onmouseover="Materialize.toast('Click para visualizar o registro',2000)">zoom_in</i>
-        </a>
-      </td>
-    </tr>
-  </tbody>
+<div id="popout" class="section scrollspy">
+    <p class="caption">
+        <h5> Bem Vindo a Listagem de Clientes </h5>
+
+        <ul class="collapsible popout" data-collapsible="accordion">
+            <li>
+                <div class="collapsible-header">
+                    <span class="new badge blue" data-badge-caption=" ao Total">{{ pessoas.length }}</span>
+                    <i class="material-icons" onmouseover="Materialize.toast('Click para abrir os totais',2000)">attach_money</i>Clientes Cadastrados
+                </div>
+                <div class="collapsible-body">Clientes em Atraso {{ pessoas.length }}
+                    <span class="new badge purple" data-badge-caption=" ao Total">10</span>
+                </div>
+                <div class="collapsible-body">Clientes Inativos
+                    <span class="new badge red" data-badge-caption=" ao Total">2</span>
+                </div>
+                <div class="collapsible-body">Clientes Ativos
+                    <span class="new badge green" data-badge-caption=" ao Total"></span>
+                </div>
+            </li>
+        </ul>
+
+</div>
+<table class="highlight centered bordered responsive-table">
+    <thead>
+        <tr>
+            <th data-field='idpessoa'>Código</th>
+            <th data-field='nome'>Nome</th>
+            <th data-field='cpf'>CPF</th>
+            <th data-field='email'>E-mail</th>
+            <th data-field='telefone'>Telefone</th>
+            <th data-field='datacadastro'>Cadastro</th>
+            <th data-field='status'>Status</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor='let pessoas of pessoas'>
+            <td>{{ pessoas.idpessoa }}</td>
+            <td>{{ pessoas.nome }}</td>
+            <td>{{ pessoas.cpf }}</td>
+            <td>{{ pessoas.email }}</td>
+            <td>{{ pessoas.telefone }}</td>
+            <td>{{ pessoas.datacadastro }}</td>
+            <div *ngIf="pessoas.status === 'A'" onmouseover="Materialize.toast('ATIVO',2000, 'rounded')" [routerLink]="['/pessoas', pessoas.idpessoa]"><span class="new badge green" data-badge-caption="">Ativo</span></div>
+            <div *ngIf="pessoas.status === 'I'" onmouseover="Materialize.toast('INATIVO',2000)" [routerLink]="['/pessoas', pessoas.idpessoa]"><span class="new badge red" data-badge-caption="">Inativo</span></div>
+            <div *ngIf="pessoas.status === 'D'" onmouseover="Materialize.toast('DEVENDO',2000)" [routerLink]="['/pessoas', pessoas.idpessoa]"><span class="new badge purple" data-badge-caption="">Debito</span></div>
+            <td> </td>
+            <td>
+                <a [routerLink]="['/pessoas/editar', pessoas.idpessoa]">
+                    <i class="material-icons" onmouseover="Materialize.toast('Click para editar o registro',2000)">mode_edit</i>
+                </a>
+            </td>
+            <td>
+                <a [routerLink]="['/pessoas/editar', pessoas.idpessoa]">
+                    <i class="material-icons">mode_edit</i>
+                </a>
+            </td>
+            <td>
+                <a [routerLink]="['/pessoas/visualizar/', pessoas.idpessoa]">
+                    <i class='material-icons' onmouseover="Materialize.toast('Click para visualizar o registro',2000)">zoom_in</i>
+                </a>
+            </td>
+        </tr>
+    </tbody>
 </table>

@@ -18,9 +18,15 @@ export class HttpUtilPostgreSQL {
 	public urlpost = 'http://localhost:8080/users/cadastrar/';
 	public urlput: string = 'http://localhost:8080/users/editar/';
 	public urlbuscarid: string = 'http://localhost:8080/users';
-    
+
 	public urllistarPedidos = 'http://localhost:8080/pedidos/todosPedidos/';
 
+  public urlVwPedidosNome = 'http://localhost:8080/vwpedidos/buscar/';
+  public urlView = 'http://localhost:8080/vwpedidos/';
+
+  urlViewPedNome () {
+    return this.urlVwPedidosNome;
+  }
 	urlUserListar() {
 		return this.urllistar;
 	}
@@ -75,7 +81,7 @@ export class HttpUtilPostgreSQL {
 		let data = response.json();
 		return data || {};
 	}
-	
+
 	processarErros(erro: any) {
 		return Observable.throw(alert('Erro acessando servidor remoto, Serviço HTTP'));
 	}

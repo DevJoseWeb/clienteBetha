@@ -1,63 +1,58 @@
 <!--{{ produtos.length }}-->
 <ul class="collapsible" data-collapsible="accordion">
-  <li>
-    <div class="collapsible-header">
-    <span class="new badge blue" data-badge-caption=" ao Total" 
-    onmouseover="Materialize.toast('Click para abrir os totais',2000)"></span>
-    <i class="material-icons" onmouseover="Materialize.toast('Click para abrir os totais',2000)">attach_money</i>Listagem de Produtos mais Vendidos
-    </div>
-    <div class="collapsible-body">Clientes em Atraso $
-    <span class="new badge purple" data-badge-caption=" ao Total">10</span>    
-    </div>
-    <div class="collapsible-body">Clientes Inativos
-    <span class="new badge red" data-badge-caption=" ao Total">2</span>    
-    </div>
-    <div class="collapsible-body">Clientes Ativos
-    <span class="new badge green" data-badge-caption=" ao Total">6</span>    
-    </div>
-  </li>
+    <li>
+        <div class="collapsible-header">
+            <span class="new badge blue" data-badge-caption=" ao Total" onmouseover="Materialize.toast('Click para abrir os totais',2000)"></span>
+            <i class="material-icons" onmouseover="Materialize.toast('Click para abrir os totais',2000)">attach_money</i>Listagem de Produtos mais Vendidos
+        </div>
+        <div class="collapsible-body">Clientes em Atraso $
+            <span class="new badge purple" data-badge-caption=" ao Total">10</span>
+        </div>
+        <div class="collapsible-body">Clientes Inativos
+            <span class="new badge red" data-badge-caption=" ao Total">2</span>
+        </div>
+        <div class="collapsible-body">Clientes Ativos
+            <span class="new badge green" data-badge-caption=" ao Total">6</span>
+        </div>
+    </li>
 </ul>
-
 <table class="highlight centered bordered responsive-table">
-  <thead>
-    <tr>
-      <th data-field='idpedidos'>Código</th>
-      <th data-field='datapedido'>Data Pedido</th>
-      <th data-field='fkprodutos'>Produtos</th>
-      <th data-field='fkpedidos'>Pessoas</th>
-      <th data-field='status'>Status</th>
-      <th data-field='status'>Editar</th>
-      <th data-field='status'>visualizar</th>
-     
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor='let pedidos of pedidoss'>
-      <td>{{ pedidos.idpedidos }}</td>
-      <td>{{ pedidos.datapedido }}</td>
-      <td>{{ pedidos.fkprodutos.descricao }}</td>
-      <td>{{ pedidos.fkpessoas.nome }}</td>
-     <div *ngIf="pedidos.status === 'Pago'" onmouseover="Materialize.toast('Pago',2000)" 
-     [routerLink]="['/pedidos', pedidos.idpedidos]">
-     <span class="new badge green" data-badge-caption="">Pago</span></div>
-     <div *ngIf="pedidos.status === 'Pedido'" onmouseover="Materialize.toast('Pedido',2000)" 
-     [routerLink]="['/pedidos', pedidos.idpedidos]">
-     <span class="new badge orange" data-badge-caption="">Pedido</span></div>
-     <div *ngIf="pedidos.status === 'Cancelado'" onmouseover="Materialize.toast('Cancelado',2000)" 
-     [routerLink]="['/pedidos', pedidos.idpedidos]">
-     <span class="new badge red" data-badge-caption="">Cancelado</span></div>
-     <td>
-        <a [routerLink]="['/pedidos/editar', pedidos.idpedidos]">
-          <i class="material-icons" onmouseover="Materialize.toast('Click para editar o registro',2000)">mode_edit</i>
-        </a>
-     </td>     
-     
-     <td>
-        <a [routerLink]="['/pedidos/visualizar/', pedidos.idpedidos]">
-          <i class='material-icons' onmouseover="Materialize.toast('Click para visualizar o registro',2000)">zoom_in</i>
-        </a>
-      </td>
-    </tr>
-  </tbody>
+    <thead>
+        <tr>
+            <th data-field='idpedidos'>Código</th>
+            <th data-field='datapedido'>Data Pedido</th>
+            <th data-field='fkprodutos'>Produtos</th>
+            <th data-field='fkpedidos'>Pessoas</th>
+            <th data-field='status'>Status</th>
+            <th data-field='status'>Editar</th>
+            <th data-field='status'>visualizar</th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor='let pedidos of pedidoss'>
+            <td>{{ pedidos.idpedidos }}</td>
+            <td>{{ pedidos.datapedido }}</td>
+            <td>{{ pedidos.fkprodutos.descricao }}</td>
+            <td>{{ pedidos.fkpessoas.nome }}</td>
+            <div *ngIf="pedidos.status === 'Pago'" onmouseover="Materialize.toast('Pago',2000)" [routerLink]="['/pedidos', pedidos.idpedidos]">
+                <span class="new badge green" data-badge-caption="">Pago</span></div>
+            <div *ngIf="pedidos.status === 'Pedido'" onmouseover="Materialize.toast('Pedido',2000)" [routerLink]="['/pedidos', pedidos.idpedidos]">
+                <span class="new badge orange" data-badge-caption="">Pedido</span></div>
+            <div *ngIf="pedidos.status === 'Cancelado'" onmouseover="Materialize.toast('Cancelado',2000)" [routerLink]="['/pedidos', pedidos.idpedidos]">
+                <span class="new badge red" data-badge-caption="">Cancelado</span></div>
+            <td>
+                <a [routerLink]="['/pedidos/editar', pedidos.idpedidos]">
+                    <i class="material-icons" onmouseover="Materialize.toast('Click para editar o registro',2000)">mode_edit</i>
+                </a>
+            </td>
+
+            <td>
+                <a [routerLink]="['/pedidos/visualizar/', pedidos.idpedidos]">
+                    <i class='material-icons' onmouseover="Materialize.toast('Click para visualizar o registro',2000)">zoom_in</i>
+                </a>
+            </td>
+        </tr>
+    </tbody>
 </table>

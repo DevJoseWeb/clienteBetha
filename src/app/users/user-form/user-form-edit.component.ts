@@ -62,13 +62,8 @@ export class UserFormEditComponent implements OnInit {
 		this.usersService.buscarPorId(this.id).subscribe(
                 	user => this.user = user);
 	}
-  //   update() {
-  //   let result,
-  //       userValue = this.form.value;
-  //       result = this.usersService.updateUser(userValue);
-  //       result.subscribe(data => this.router.navigate(['/users']));
-  // }
-  	update() {
+
+	update() {
 		this.usersService.updateUser(this.user).subscribe(
                 	user => this.router.navigate(['/users']));
 	}

@@ -17,7 +17,7 @@ export class UsersComponent implements OnInit {
     this.usersService.getUsers().subscribe(data => this.users = data);
   }
 
-  deleteUser(user){
+  deleteUser(user) {
     if (confirm('Are you sure you want to delete ' + user.name + '?')) {
       var index = this.users.indexOf(user);
       this.users.splice(index, 1);

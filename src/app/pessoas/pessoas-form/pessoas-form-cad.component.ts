@@ -33,11 +33,7 @@ export class PessoasFormCadComponent implements OnInit {
         Validators.required,
         Validators.minLength(12)
       ]],
-      datacadastro: ['', [
-        Validators.required,
-        Validators.minLength(8)
-      ]],
-      email: ['', [
+       email: ['', [
         Validators.required,
         BasicValidators.email
       ]],

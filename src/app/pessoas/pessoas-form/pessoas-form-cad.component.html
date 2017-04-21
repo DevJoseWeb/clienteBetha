@@ -1,33 +1,47 @@
-<h5>{{ title }}</h5>
+<div id="popout" class="section scrollspy">
+    <p class="caption">
+        <h5> Bem Vindo ao Cadastro de Clientes </h5>
+</div>
 <div class="row">
     <form materialize class="col s12" [formGroup]="form" (ngSubmit)="save()">
         <div class="row">
-            <div class="input-field col s12">
+            <div class="input-field col s6">
                 <i class="material-icons prefix">account_circle</i>
-                <input id="name" type="text" class="validate" [(ngModel)]="user.name" formControlName="name" [class.invalid]="form.controls['name'].touched && !form.controls['name'].valid">
-                <label for="name" [class.active]="user.name" data-error="Name is required and needs to contain at least 3 chars">
-          Name
-        </label>
+                <input id="nome" type="text" data-length="50" [(ngModel)]="pessoas.nome" formControlName="nome">
+                <label for="nome">
+            Nome</label>
             </div>
+            <p>
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">fingerprint</i>
+                    <input id="cpf" type="number" data-length="12" [(ngModel)]="pessoas.cpf" formControlName="cpf">
+                    <label for="cpf">
+            CPF</label>
+                </div>
+                <p>
         </div>
         <div class="row">
-            <div class="input-field col s12">
-                <i class="material-icons prefix">email</i>
-                <input id="email" type="email" class="validate" [(ngModel)]="user.email" formControlName="email" [class.invalid]="form.controls['email'].touched && !form.controls['email'].valid">
-                <label for="email" [class.active]="user.email" data-error="Invalid Email">
-          Email
-        </label>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">mail_outline</i>
+                <input id="email" type="email" [(ngModel)]="pessoas.email" formControlName="email" class="validate">
+                <label for="email" data-error="Errado ! por favor entre com email válido ex: web2ajax@gmail.com" data-success="Correto Válido">
+            E-mail</label>
             </div>
+            <p>
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">perm_phone_msg</i>
+                    <input id="telefone" type="number" data-length="11" [(ngModel)]="pessoas.telefone" formControlName="telefone">
+                    <label for="telefone">
+            Telefone</label>
+                </div>
+                <p>
         </div>
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="material-icons prefix">phone</i>
-                <input id="phone" type="text" class="validate" [(ngModel)]="user.phone" formControlName="phone">
-                <label for="phone" [class.active]="user.phone">Phone</label>
-            </div>
-        </div>
-            <button class="btn waves-effect waves-light" type="submit" [disabled]="!form.valid">
-      Submit<i class="material-icons right">send</i>
+        <button class="btn waves-effect blue pulse" type="submit" [disabled]="!form.valid">
+            <i class="material-icons">cloud_done</i>
+      Salvar<i class=" material-icons right ">done</i>
+    </button>
+        <button class="btn waves-effect red " routerLink="/pessoas/lista">
+      Voltar<i class="material-icons right ">replay</i>
     </button>
     </form>
 </div>

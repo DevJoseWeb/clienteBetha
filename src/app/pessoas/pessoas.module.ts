@@ -18,8 +18,8 @@ import { PessoasComponent } from './pessoas.component';
   declarations: [ PessoasComponent, PessoasFormListaComponent, PessoasFormViewComponent,
   PessoasFormEditarComponent, PessoasFormCadComponent],
 
-  exports: [ PessoasComponent, PessoasFormListaComponent, PessoasFormViewComponent,
-  PessoasFormEditarComponent, PessoasFormCadComponent],
+   exports: [ PessoasComponent, PessoasFormListaComponent, PessoasFormViewComponent,
+   PessoasFormEditarComponent, PessoasFormCadComponent],
 
   providers: [ PessoasService, HttpUtilPostgreSQL ]
 })

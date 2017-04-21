@@ -1,4 +1,4 @@
-import {Pedidos} from './pedidos';
+//import {Pedidos} from './pedidos';
 export class Pessoas {
      //constructor(
         public idpessoa: number;
@@ -8,7 +8,6 @@ export class Pessoas {
         public email: string;
         public telefone: string;
         public status: string;
-        public pedidosList:  Pedidos = new Pedidos();
+        //public pedidosList:  Pedidos = new Pedidos();
        // ) {
      }
- 
